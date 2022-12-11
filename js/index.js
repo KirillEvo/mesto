@@ -9,8 +9,6 @@ document.addEventListener("DOMContentLoaded", function() {
         btnClose = popup.querySelector('.popup__close'),
         popupInput = popup.querySelectorAll('.popup__input'),
         saveBtn = popup.querySelector('.popup__btn'),
-        elem = document.querySelectorAll('.element'),
-        // btnHeart = elem.querySelectorp('.element__heart');
         btnHeart = document.querySelectorAll('.element__heart');
 
         btnEdit.addEventListener('click', ()=>{
