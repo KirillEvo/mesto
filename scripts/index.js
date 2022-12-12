@@ -6,14 +6,14 @@ document.addEventListener("DOMContentLoaded", function() {
         profDesc = profile.querySelector('.profile__description'),
         btnEdit = profile.querySelector('.profile__edit-button'),
         popup = document.querySelector('.popup'),
+        saveForm = popup.querySelector('.popup__form'),
         btnClose = popup.querySelector('.popup__close'),
         inputTitle = popup.querySelector('.popup__input_text_title'),
-        inputDesc = popup.querySelector('.popup__input_text_description'),
-        saveBtn = popup.querySelector('.popup__btn');
+        inputDesc = popup.querySelector('.popup__input_text_description');
 
         function setAttribute() {
-            inputTitle.setAttribute('value', profTitle.textContent);
-            inputDesc.setAttribute('value', profDesc.textContent);
+            inputTitle.value = profTitle.textContent;
+            inputDesc.value = profDesc.textContent;
         };
 
         function openModal() {
@@ -36,6 +36,6 @@ document.addEventListener("DOMContentLoaded", function() {
             closeModal();
         }
 
-        saveBtn.addEventListener('click', saveAttribute);
+        saveForm.addEventListener('submit', saveAttribute);
 
 });
