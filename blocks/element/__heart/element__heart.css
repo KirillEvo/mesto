@@ -2,6 +2,7 @@
     background: url('../../../images/heart.svg') no-repeat center center;
     min-width: 22px;
     min-height: 19px;
+    border: 0;
 }
 .element__heart:hover {
     opacity: 0.5;

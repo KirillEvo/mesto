@@ -8,3 +8,6 @@
     font-weight: 400;
     line-height: 17px;
 }
+.popup__input:first-child{
+    margin-bottom: 30px;
+}
