@@ -9,10 +9,12 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    grid-area: profile-description;
 }
 @media screen and (max-width: 1024px) {
     .profile__description {
         font-size: 14px;
         line-height: 17px;
+        margin-left: 30px;
     }
 }

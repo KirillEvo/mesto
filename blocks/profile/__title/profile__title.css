@@ -9,6 +9,7 @@
     white-space: nowrap;
     overflow: hidden;
     max-width: 294px;
+    grid-area: profile-title;
 }
 @media screen and (max-width: 1024px) {
     .profile__title {

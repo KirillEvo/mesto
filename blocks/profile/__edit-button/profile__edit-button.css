@@ -3,6 +3,7 @@
     height: 24px;
     background: url('../../../images/pencil.svg') no-repeat center center;
     border: solid 1px #fff;
+    grid-area: profile-button;
 }
 .profile__edit-button:hover {
     cursor: pointer;
