@@ -34,9 +34,7 @@
 
   function addCardPlace(e){
     e.preventDefault();
-    const namePlace = placeName.value,
-        urlPlace = placeUrl.value;
-    const cardArr = {name:namePlace, link:urlPlace};
+    const cardArr = {name:placeName.value, link:placeUrl.value};
     renderCard(cardArr);
     closePopup(popupCard);
     e.target.reset();
