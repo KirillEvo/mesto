@@ -17,27 +17,27 @@
         placeName = cardAdd.querySelector('.popup__input_text_title'),
         placeUrl = cardAdd.querySelector('.popup__input_link');
 
-  function openPopup(e) {
-    e.classList.add('popup_opened');
+  function openPopup(evt) {
+    evt.classList.add('popup_opened');
   };
 
-  function closePopup(e) {
-    e.classList.remove('popup_opened')
+  function closePopup(evt) {
+    evt.classList.remove('popup_opened')
   };
 
-  function saveProfile(e){
-    e.preventDefault();
+  function saveProfile(evt){
+    evt.preventDefault();
     titleProfile.textContent = valueTitile.value;
     descProfile.textContent = valueDesc.value;
     closePopup(popupProfile);
   };
 
-  function addCardPlace(e){
-    e.preventDefault();
+  function addCardPlace(evt){
+    evt.preventDefault();
     const cardArr = {name:placeName.value, link:placeUrl.value};
     renderCard(cardArr);
     closePopup(popupCard);
-    e.target.reset();
+    evt.target.reset();
   };
 
   btnEdit.addEventListener('click', ()=>{
@@ -73,12 +73,12 @@
     elemArticleImage.src =item.link;
     elemArticleImage.alt =item.name;
 
-    let btnHeart = elemArticle.querySelector('.element__heart');
-    btnHeart.addEventListener('click', (e)=>{
-      e.target.classList.toggle('element__heart_black');
+    const btnHeart = elemArticle.querySelector('.element__heart');
+    btnHeart.addEventListener('click', (evt)=>{
+      evt.target.classList.toggle('element__heart_black');
     });
 
-    let btnDelet = elemArticle.querySelector('.element__cart');
+    const btnDelet = elemArticle.querySelector('.element__cart');
     btnDelet.addEventListener('click', ()=>{
       elemArticle.remove();
     });
