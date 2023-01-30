@@ -19,6 +19,12 @@
 
   function openPopup(evt) {
     evt.classList.add('popup_opened');
+    const thispopup = evt;
+    document.addEventListener('keydown', (evt) => {
+      if(evt.key === 'Escape') {
+        closePopup(thispopup);
+      }
+    });
   };
 
   function closePopup(evt) {
@@ -65,6 +71,7 @@
            closePopup(popup);
       }});
 
+
   });
 
   cardAdd.addEventListener('submit', addCardPlace);
@@ -76,8 +83,8 @@
     const elemArticle = elemArticleTemplate.querySelector('.element').cloneNode(true);
     elemArticle.querySelector('.element__text').textContent = item.name;
     const elemArticleImage = elemArticle.querySelector('.element__image');
-    elemArticleImage.src =item.link;
-    elemArticleImage.alt =item.name;
+    elemArticleImage.src = item.link;
+    elemArticleImage.alt = item.name;
 
     const btnHeart = elemArticle.querySelector('.element__heart');
     btnHeart.addEventListener('click', (evt)=>{
