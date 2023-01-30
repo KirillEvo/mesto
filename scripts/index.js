@@ -19,6 +19,12 @@
 
   function openPopup(evt) {
     evt.classList.add('popup_opened');
+    const thispopup = evt;
+    document.addEventListener('keydown', (evt) => {
+      if(evt.key === 'Escape') {
+        closePopup(thispopup);
+      }
+    });
   };
 
   function closePopup(evt) {
@@ -64,6 +70,7 @@
       if(evt.target === popup){
            closePopup(popup);
       }});
+
 
   });
 
