@@ -22,7 +22,7 @@
   };
 
   function closePopup(evt) {
-    evt.classList.remove('popup_opened')
+    evt.classList.remove('popup_opened');
   };
 
   function saveProfile(evt){
@@ -59,6 +59,12 @@
     btnClose.addEventListener('click', function(){
       closePopup(popup);
     });
+
+    popup.addEventListener('click', (evt)=>{
+      if(evt.target === popup){
+           closePopup(popup);
+      }});
+
   });
 
   cardAdd.addEventListener('submit', addCardPlace);
