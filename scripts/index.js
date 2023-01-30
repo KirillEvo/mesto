@@ -22,7 +22,7 @@
   };
 
   function closePopup(evt) {
-    evt.classList.remove('popup_opened')
+    evt.classList.remove('popup_opened');
   };
 
   function saveProfile(evt){
