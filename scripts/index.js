@@ -59,6 +59,12 @@
     btnClose.addEventListener('click', function(){
       closePopup(popup);
     });
+
+    popup.addEventListener('click', (evt)=>{
+      if(evt.target === popup){
+           closePopup(popup);
+      }});
+
   });
 
   cardAdd.addEventListener('submit', addCardPlace);

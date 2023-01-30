@@ -34,9 +34,11 @@
               <button type="button" class="popup__close"></button>
                 <h2 class="popup__title">Редактировать профиль</h2>
                 <form class="popup__form" name="profile">
-                  <input class="popup__input popup__input_text_title" placeholder="Имя" name="name">
-                  <input class="popup__input popup__input_text_description" placeholder="О себе" name="text">
-                  <button class="popup__btn" type="submit">Сохранить</button>
+                  <input id="name-input" minlength="2" maxlength="40" type="text" class="popup__input popup__input_text_title" placeholder="Имя" name="name" required>
+                  <span class="popup__input-error name-input-error">Вы пропустили это поле.</span>
+                  <input id="description-input" minlength="2" maxlength="200" type="text" class="popup__input popup__input_text_description" placeholder="О себе" name="text" required>
+                  <span class="popup__input-error description-input-error">Вы пропустили это поле.</span>
+                  <button class="popup__btn popup__btn_inactive" type="submit">Сохранить</button>
                 </form>
           </div>
         </div>
@@ -45,9 +47,11 @@
             <button type="button" class="popup__close"></button>
               <h2 class="popup__title">Новое место</h2>
               <form class="popup__form" name="profile">
-                <input class="popup__input popup__input_text_title" placeholder="Название" name="name">
-                <input class="popup__input popup__input_link" placeholder="Ссылка на картинку" name="url">
-                <button class="popup__btn" type="submit">Создать</button>
+                <input id="mesto-input" minlength="2" maxlength="30" type="text" class="popup__input popup__input_text_title" placeholder="Название" name="name" required>
+                <span class="popup__input-error mesto-input-error">Вы пропустили это поле.</span>
+                <input id="url-input" type="url" class="popup__input popup__input_link" placeholder="Ссылка на картинку" name="url" required>
+                <span class="popup__input-error url-input-error">Введите адрес сайта.</span>
+                <button class="popup__btn popup__btn_inactive" type="submit">Создать</button>
               </form>
         </div>
       </div>
@@ -70,5 +74,6 @@
     </template>
     <script src="./scripts/cards.js"></script>
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validate.js"></script>
 </body>
 </html>
