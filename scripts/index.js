@@ -101,7 +101,8 @@ const cardList = document.querySelector('.elements');
 
   const formValidators = {}
   const enableValidation = (config) => {
-    const formList = Array.from(document.querySelectorAll(config.formSelector))
+    const formList = Array.from(document.querySelectorAll(config.formSelector));
+
     formList.forEach((formElement) => {
       const validator = new FormValidator(formElement, config)
       const formName = formElement.getAttribute('name')
