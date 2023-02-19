@@ -1,3 +1,10 @@
+import {dataCard} from "./cards.js"
+import {dataValidate} from './validate.js'
+import FormValidator from "./FormValidator.js";
+import Card from './Card.js';
+
+const cardList = document.querySelector('.elements');
+
   const popups = document.querySelectorAll('.popup'),
         popupProfile = document.querySelector('.popup_profile'),
         profileSave = popupProfile.querySelector('.popup__form'),
@@ -79,47 +86,27 @@
            closePopup(popup);
       }});
 
-
   });
 
   cardAdd.addEventListener('submit', addCardPlace);
 
-  const elementsContainer = document.querySelector('.elements');
-  const elemArticleTemplate = document.querySelector('#elemArticleTemplate').content;
-
-  function createCard(item){
-    const elemArticle = elemArticleTemplate.querySelector('.element').cloneNode(true);
-    elemArticle.querySelector('.element__text').textContent = item.name;
-    const elemArticleImage = elemArticle.querySelector('.element__image');
-    elemArticleImage.src = item.link;
-    elemArticleImage.alt = item.name;
-
-    const btnHeart = elemArticle.querySelector('.element__heart');
-    btnHeart.addEventListener('click', (evt)=>{
-      evt.target.classList.toggle('element__heart_black');
-    });
-
-    const btnDelet = elemArticle.querySelector('.element__cart');
-    btnDelet.addEventListener('click', ()=>{
-      elemArticle.remove();
-    });
-
-    elemArticleImage.addEventListener('click', ()=>{
-      openPopup(popupImage);
-
-      popupImg.src = item.link;
-      popupImg.alt = item.name;
-      popupText.textContent = item.name;
-
-    });
-
-    return elemArticle;
-  };
-
-  function renderCard(item, cards = elementsContainer){
-    cards.prepend(createCard(item));
+  function renderCard(item) {
+    const card = new Card(item, '.elemArticleTemplate', openPopup, popupImage, popupImg, popupText);
+    const elementCard = card.generate();
+    cardList.prepend(elementCard);
   }
 
-  initialCards.forEach(function(item) {
-    renderCard(item);
-  });
+  dataCard.forEach((item) => {
+    const card = new Card(item, '.elemArticleTemplate', openPopup, popupImage, popupImg, popupText);
+    const elementCard = card.generate();
+    cardList.append(elementCard);
+  })
+
+  function formsE(setting){
+    const formList = Array.from(document.querySelectorAll(setting.formSelector));
+    formList.forEach((item) =>{
+      const formValidate = new FormValidator(setting, item);
+      formValidate.enableValidation();
+    })
+  }
+  formsE(dataValidate);

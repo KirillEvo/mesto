@@ -6,6 +6,7 @@
 * HTML
 * CSS
 * JavaScript
+* ES06
 
 **GitHub Pages**
 
