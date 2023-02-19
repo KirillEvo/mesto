@@ -59,20 +59,12 @@ const cardList = document.querySelector('.elements');
     openPopup(popupProfile)
     valueTitile.value = titleProfile.textContent;
     valueDesc.value = descProfile.textContent;
-    const btnSaveProfile = popupProfile.querySelector('.popup__btn');
-    // const formValidate = new FormValidator(dataValidate, profileSave);
-    // formValidate.enableValidation();
     formValidators['profile'].resetValidation()
-    btnSaveProfile.classList.remove('popup__btn_inactive');
   });
 
   btnAdd.addEventListener('click', ()=>{
     openPopup(popupCard)
-    const btnSaveCard = popupCard.querySelector('.popup__btn');
-    // const formValidate = new FormValidator(dataValidate, cardAdd);
-    // formValidate.enableValidation();
     formValidators['card'].resetValidation()
-    btnSaveCard.classList.add('popup__btn_inactive');
   });
 
   profileSave.addEventListener('submit', saveProfile)
@@ -109,7 +101,8 @@ const cardList = document.querySelector('.elements');
 
   const formValidators = {}
   const enableValidation = (config) => {
-    const formList = Array.from(document.querySelectorAll(config.formSelector))
+    const formList = Array.from(document.querySelectorAll(config.formSelector));
+
     formList.forEach((formElement) => {
       const validator = new FormValidator(formElement, config)
       const formName = formElement.getAttribute('name')
