@@ -9,6 +9,7 @@ class Card {
     this._popupImage = popupImage;
     this._popupImg = popupImg;
     this._popupText = popupText;
+
   }
 
   _getElement(){
@@ -22,13 +23,16 @@ class Card {
   }
 
   _setEventListeners(){
-    this._element.querySelector('.element__heart').addEventListener('click', ()=>{this._heartClick();})
+    this._btnHeart = this._element.querySelector('.element__heart');
+    this._cardImage = this._element.querySelector('.element__image');
+
+    this._btnHeart.addEventListener('click', ()=>{this._heartClick();})
     this._element.querySelector('.element__cart').addEventListener('click', ()=>{this._deletCard();})
-    this._element.querySelector('.element__image').addEventListener('click', ()=>{this._openImage()})
+    this._cardImage.addEventListener('click', ()=>{this._openImage()})
   }
 
   _heartClick(){
-    this._element.querySelector('.element__heart').classList.toggle('element__heart_black');
+    this._btnHeart.classList.toggle('element__heart_black');
   }
 
   _deletCard(){
@@ -48,8 +52,8 @@ class Card {
 
 
     this._element.querySelector('.element__text').textContent = this._name;
-    this._element.querySelector('.element__image').src = this._link;
-    this._element.querySelector('.element__image').alt = this._name;
+    this._cardImage.src = this._link;
+    this._cardImage.alt = this._name;
     return this._element;
   }
 }

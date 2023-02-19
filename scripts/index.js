@@ -60,14 +60,16 @@ const cardList = document.querySelector('.elements');
     valueTitile.value = titleProfile.textContent;
     valueDesc.value = descProfile.textContent;
     const btnSaveProfile = popupProfile.querySelector('.popup__btn');
-    btnSaveProfile.removeAttribute('disabled');
+    const formValidate = new FormValidator(dataValidate, profileSave);
+    formValidate.enableValidation();
     btnSaveProfile.classList.remove('popup__btn_inactive');
   });
 
   btnAdd.addEventListener('click', ()=>{
     openPopup(popupCard)
     const btnSaveCard = popupCard.querySelector('.popup__btn');
-    btnSaveCard.setAttribute('disabled', '');
+    const formValidate = new FormValidator(dataValidate, cardAdd);
+    formValidate.enableValidation();
     btnSaveCard.classList.add('popup__btn_inactive');
   });
 
@@ -93,20 +95,26 @@ const cardList = document.querySelector('.elements');
   function renderCard(item) {
     const card = new Card(item, '.elemArticleTemplate', openPopup, popupImage, popupImg, popupText);
     const elementCard = card.generate();
-    cardList.prepend(elementCard);
+    createCard(elementCard);
+    // return elementCard;
   }
 
-  dataCard.forEach((item) => {
-    const card = new Card(item, '.elemArticleTemplate', openPopup, popupImage, popupImg, popupText);
-    const elementCard = card.generate();
-    cardList.append(elementCard);
-  })
-
-  function formsE(setting){
-    const formList = Array.from(document.querySelectorAll(setting.formSelector));
-    formList.forEach((item) =>{
-      const formValidate = new FormValidator(setting, item);
-      formValidate.enableValidation();
+    dataCard.forEach((item) => {
+      const card = new Card(item, '.elemArticleTemplate', openPopup, popupImage, popupImg, popupText);
+      const elementCard = card.generate();
+      createCard(elementCard);
+      // return elementCard;
     })
-  }
-  formsE(dataValidate);
+
+    function createCard(item){
+      cardList.prepend(item)
+    }
+
+  // function formsE(setting){
+  //   const formList = Array.from(document.querySelectorAll(setting.formSelector));
+  //   formList.forEach((item) =>{
+  //     const formValidate = new FormValidator(setting, item);
+  //     formValidate.enableValidation();
+  //   })
+  // }
+  // formsE(dataValidate);
