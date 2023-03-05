@@ -1,12 +1,12 @@
 class Card {
 
-  constructor(data, selector, openPopup, popupImage, popupImg, popupText) {
+  constructor(data, selector, handleCardClick, popupImg, popupText) {
     this._name = data.name;
     this._link = data.link;
     this._selector = selector;
     this._data = data;
-    this._funcOpenPopup = openPopup;
-    this._popupImage = popupImage;
+    this._funcOpenPopup = handleCardClick;
+    // this._popupImage = popupImage;
     this._popupImg = popupImg;
     this._popupText = popupText;
 
@@ -40,10 +40,10 @@ class Card {
   }
 
   _openImage(){
-    this._funcOpenPopup(this._popupImage);
-    this._popupImg.src = this._link;
-    this._popupImg.alt = this._name;
-    this._popupText.textContent = this._name;
+    this._funcOpenPopup(this._name, this._link);
+    // this._popupImg.src = this._link;
+    // this._popupImg.alt = this._name;
+    // this._popupText.textContent = this._name;
   }
 
   generate() {

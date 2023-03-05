@@ -5,16 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Проект - Место</title>
-    <link href="./pages/index.css" rel="stylesheet">
+    <!-- <link href="./pages/index.css" rel="stylesheet"> -->
 </head>
 <body class="page">
     <header class="header">
-        <img class="header__logo" src="./images/logo.svg" alt="Логотип Место">
+        <img class="header__logo" src="<%=require('../images/logo.svg')%>" alt="Логотип Место">
     </header>
     <main>
     <section class="profile">
         <div class="profile__info">
-                <img class="profile__image" src="./images/avatar.jpg" alt="Аватар Место">
+                <img class="profile__image" src="<%=require('../images/avatar.jpg')%>" alt="Аватар Место">
             <div class="profile__text">
                 <h1 class="profile__title">Жак-Ив Кусто</h1>
                 <button type="button" class="profile__edit-button"></button>
@@ -36,7 +36,7 @@
                 <form class="popup__form" name="profile">
                   <input id="name-input" minlength="2" maxlength="40" type="text" class="popup__input popup__input_text_title" placeholder="Имя" name="name" required>
                   <span class="popup__input-error name-input-error">Вы пропустили это поле.</span>
-                  <input id="description-input" minlength="2" maxlength="200" type="text" class="popup__input popup__input_text_description" placeholder="О себе" name="text" required>
+                  <input id="description-input" minlength="2" maxlength="200" type="text" class="popup__input popup__input_text_description" placeholder="О себе" name="info" required>
                   <span class="popup__input-error description-input-error">Вы пропустили это поле.</span>
                   <button class="popup__btn" type="submit">Сохранить</button>
                 </form>
@@ -49,7 +49,7 @@
               <form class="popup__form" name="card">
                 <input id="mesto-input" minlength="2" maxlength="30" type="text" class="popup__input popup__input_text_title" placeholder="Название" name="name" required>
                 <span class="popup__input-error mesto-input-error">Вы пропустили это поле.</span>
-                <input id="url-input" type="url" class="popup__input popup__input_link" placeholder="Ссылка на картинку" name="url" required>
+                <input id="url-input" type="url" class="popup__input popup__input_link" placeholder="Ссылка на картинку" name="link" required>
                 <span class="popup__input-error url-input-error">Введите адрес сайта.</span>
                 <button class="popup__btn popup__btn_inactive" type="submit" disabled>Создать</button>
               </form>
@@ -58,7 +58,7 @@
       <div class="popup popup_image" aria-label="Увеличенные фотографии">
         <div class="popup__image-container">
         <button type="button" class="popup__close"></button>
-        <img class="popup__image" src=#"">
+        <img class="popup__image" src="">
         <p class="popup__image-text"></p>
         </div>
       </div>
@@ -72,6 +72,6 @@
         </div>
     </article>
     </template>
-    <script type="module" src="./pages/index.js"></script>
+    <!-- <script type="module" src="./pages/index.js"></script> -->
 </body>
 </html>
