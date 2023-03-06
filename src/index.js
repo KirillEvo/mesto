@@ -4,7 +4,6 @@ import Section from "../scripts/components/Section.js";
 import PopupWithImage from '../scripts/components/PopupWithImage.js';
 import PopupWithForm from '../scripts/components/PopupWithForm.js';
 import UserInfo from '../scripts/components/UserInfo.js';
-import { addInputText } from '../scripts/utils/utils.js';
 import './index.css';
 
 import {
@@ -64,8 +63,7 @@ function handleCardClick(name, link) {
 
 btnEdit.addEventListener('click', ()=>{
   popupEditProfile.open();
-  addInputText(userInfo.getUserInfo());
-  // console.log(userInfo.getUserInfo());
+  popupEditProfile.setInputValues(userInfo.getUserInfo());
   formValidators['profile'].resetValidation()
 });
 

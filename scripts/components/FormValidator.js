@@ -11,12 +11,14 @@ class FormValidator {
     const errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
     errorElement.classList.add(this._config.errorClass);
     this._button.classList.add(this._config.inputErrorClass);
+    errorElement.textContent = inputElement.validationMessage;
   };
 
   _hideInputError(inputElement){
     const errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
     errorElement.classList.remove(this._config.errorClass);
     this._button.classList.remove(this._config.inputErrorClass);
+    errorElement.textContent = '';
   };
 
   _checkInputValidity(inputElement){
