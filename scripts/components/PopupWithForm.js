@@ -8,6 +8,12 @@ class PopupWithForm extends Popup {
     this._callBack = callBackFunction;
   }
 
+  setInputValues(data) {
+    this._popupFormInput.forEach((input) => {
+      input.value = data[input.name];
+    });
+  }
+
   _getInputValues() {
 
     this._formValues = {};
@@ -24,7 +30,6 @@ class PopupWithForm extends Popup {
     this._popupForm.addEventListener('submit', (evt) => {
       evt.preventDefault();
       this._callBack(this._getInputValues());
-      evt.target.reset();
     })
   }
 
