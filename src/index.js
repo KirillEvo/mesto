@@ -43,16 +43,15 @@ const api = new Api({
   }
 })
 
-api.getUserInfo()
-.then(res => {
-  userInfo.setUserInfo(res);
-}).catch(err => console.log(`${err}`));
-
-api.getCard()
-.then((res) => {
-  const arr = res.reverse();
-  defaultCard.renderItems(arr);
-}).catch(err => console.log(`${err}`));
+Promise.all([api.getUserInfo(), api.getCard()])
+  .then(([userData, apicards]) => {
+      userInfo.setUserInfo(userData);
+      const arr = apicards.reverse();
+      defaultCard.renderItems(arr);
+  })
+  .catch(err => {
+    console.log(`${err}`)
+  });
 
 const defaultCard = new Section({
   items: [],
@@ -73,13 +72,13 @@ const popupEditProfile = new PopupWithForm(popupProfile, data => {
 });
 
 const popupAddCard = new PopupWithForm(popupCard, data => {
-  api.setNewCard(data)
+  return api.setNewCard(data)
   .then((res) => {
     defaultCard.addItem(res);
     popupAddCard.close();
   }).catch(err => console.log(`${err}`))
   .finally(() => {
-    popupEditProfile.unloadingApi();
+    popupAddCard.unloadingApi();
   })
 });
 
@@ -90,7 +89,7 @@ const popupUpdateAvater = new PopupWithForm(popupAvatar, data => {
     popupUpdateAvater.close();
   }).catch(err => console.log(`${err}`))
   .finally(() => {
-    popupEditProfile.unloadingApi();
+    popupUpdateAvater.unloadingApi();
   })
 })
 

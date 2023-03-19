@@ -40,7 +40,6 @@ class Card {
     // Проверка совпдает ли ид пользователя с идом у карточки, иначе удалят элемент для удаления карточки
     if(this._userId !== this._owner._id) {this._deleteCard.remove();}
     // Проверка объекта на наличие определенного условия
-    console.log(this._likes);
     // if(this._likes.find(item => item._id === this._userId)) {
     //   this._heart.classList.add('element__heart_black');
     //   this._statusLike = true;
