@@ -17,7 +17,10 @@ export default class UserInfo {
     this.id = data._id;
     this._name.textContent = this.name;
     this._info.textContent = this.info;
-    if(data.avatar) { this._avatar.src = data.avatar}
+    if(data.avatar) {
+      this._avatar.src = data.avatar
+      this._avatar.alt = this.name
+    }
   }
 
   getUserId() {
