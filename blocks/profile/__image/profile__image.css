@@ -1,9 +1,11 @@
 .profile__image {
+  position: relative;
     border-radius: 120px;
-    object-fit: cover;
     width: 120px;
     height: 120px;
-    margin-right: 30px;
+    object-fit: cover;
+    cursor: pointer;
+    z-index: -1;
 }
 @media screen and (max-width: 1024px) {
     .profile__image {

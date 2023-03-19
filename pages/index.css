@@ -10,6 +10,7 @@
 
 /* Portfolio */
 @import url('../blocks/profile/profile.css');
+@import url('../blocks/profile/__edit-avatar/profile__edit-avatar.css');
 @import url('../blocks/profile/__image/profile__image.css');
 @import url('../blocks/profile/__info/profile__info.css');
 @import url('../blocks/profile/__text/profile__text.css');

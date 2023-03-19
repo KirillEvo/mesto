@@ -49,10 +49,14 @@ export const cardAdd = popupCard.querySelector('.popup__form');
 export const popupImage = document.querySelector('.popup_image');
 export const popupImg = popupImage.querySelector('.popup__image');
 export const popupText = popupImage.querySelector('.popup__image-text');
+export const popupDelete = document.querySelector('.popup_delete');
+export const popupAvatar = document.querySelector('.popup_avatar');
+export const btnAvatarEdit = document.querySelector('.profile__edit-avatar');
 
 export const profile = document.querySelector('.profile');
 export const btnEdit = profile.querySelector('.profile__edit-button');
 export const btnAdd = profile.querySelector('.profile__add-button');
+export const imgProfile = profile.querySelector('.profile__image');
 export const titleProfile = profile.querySelector('.profile__title');
 export const descProfile = profile.querySelector('.profile__description');
 export const valueTitile = popupProfile.querySelector('.popup__input_text_title');
